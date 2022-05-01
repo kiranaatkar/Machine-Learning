@@ -8,14 +8,12 @@ pygame.init()
 # Using a font file makes start up quicker
 font = pygame.font.Font('./arial.ttf', 25)
 
+#
 
 # way of enforcing type and variable names
 # see init game state
 class Direction(Enum):
-  RIGHT = 1
-  LEFT = 2
-  UP = 3
-  DOWN = 4
+  RIGHT, LEFT, UP, DOWN = [1, 2, 3, 4]
 
 Point = namedtuple('Point', 'x, y')
 
@@ -132,8 +130,7 @@ class SnakeGame:
 
   
   def _move(self, direction):
-    x = self.head.x
-    y = self.head.y
+    x, y = self.head
 
     if direction == Direction.RIGHT:
       x += BLOCK_SIZE
